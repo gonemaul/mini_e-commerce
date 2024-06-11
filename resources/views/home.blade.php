@@ -1,107 +1,83 @@
 @extends('layouts.main')
 
 @section('content')
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+<script src="{{ asset('assets/js/dashboard.js') }}"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+@if(session()->has('success'))
+    <script>
+      swal("Good job!", "Your profile has been updated successfully", "success");
+    </script>
+@endif
+
 <div class="content-wrapper">
     <div class="row">
-      <div class="col-12 grid-margin stretch-card">
-        <div class="card corona-gradient-card">
-          <div class="card-body py-0 px-0 px-sm-3">
-            <div class="row align-items-center">
-              <div class="col-4 col-sm-3 col-xl-2">
-                <img src="assets/images/dashboard/Group126@2x.png" class="gradient-corona-img img-fluid" alt="">
-              </div>
-              <div class="col-5 col-sm-7 col-xl-8 p-0">
-                <h4 class="mb-1 mb-sm-0">Want even more features?</h4>
-                <p class="mb-0 font-weight-normal d-none d-sm-block">Check out our Pro version with 5 unique layouts!</p>
-              </div>
-              <div class="col-3 col-sm-2 col-xl-2 pl-0 text-center">
-                <span>
-                  <a href="https://www.bootstrapdash.com/product/corona-admin-template/" target="_blank" class="btn btn-outline-light btn-rounded get-started-btn">Upgrade to PRO</a>
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="row">
       <div class="col-xl-3 col-sm-6 grid-margin stretch-card">
         <div class="card">
           <div class="card-body">
-            <div class="row">
-              <div class="col-9">
-                <div class="d-flex align-items-center align-self-start">
-                  <h3 class="mb-0">$12.34</h3>
-                  <p class="text-success ml-2 mb-0 font-weight-medium">+3.5%</p>
-                </div>
-              </div>
+            <div class="row mb-2">
               <div class="col-3">
-                <div class="icon icon-box-success ">
-                  <span class="mdi mdi-arrow-top-right icon-item"></span>
+                <div class="icon icon-box-warning">
+                  <span class="mdi mdi-account-multiple icon-item"></span>
                 </div>
               </div>
+                <div class="d-flex align-items-center align-self-start my-auto col-9">
+                  <h3 class="mb-0" style="font-size: 1.6rem;font-weight:500">{{ $user }}</h3>
+                </div>
             </div>
-            <h6 class="text-muted font-weight-normal">Potential growth</h6>
+            <h6 class="text-muted font-weight-normal">Total Users</h6>
           </div>
         </div>
       </div>
       <div class="col-xl-3 col-sm-6 grid-margin stretch-card">
         <div class="card">
           <div class="card-body">
-            <div class="row">
-              <div class="col-9">
-                <div class="d-flex align-items-center align-self-start">
-                  <h3 class="mb-0">$17.34</h3>
-                  <p class="text-success ml-2 mb-0 font-weight-medium">+11%</p>
-                </div>
-              </div>
-              <div class="col-3">
-                <div class="icon icon-box-success">
-                  <span class="mdi mdi-arrow-top-right icon-item"></span>
-                </div>
-              </div>
-            </div>
-            <h6 class="text-muted font-weight-normal">Revenue current</h6>
-          </div>
-        </div>
-      </div>
-      <div class="col-xl-3 col-sm-6 grid-margin stretch-card">
-        <div class="card">
-          <div class="card-body">
-            <div class="row">
-              <div class="col-9">
-                <div class="d-flex align-items-center align-self-start">
-                  <h3 class="mb-0">$12.34</h3>
-                  <p class="text-danger ml-2 mb-0 font-weight-medium">-2.4%</p>
-                </div>
-              </div>
+            <div class="row mb-2">
               <div class="col-3">
                 <div class="icon icon-box-danger">
-                  <span class="mdi mdi-arrow-bottom-left icon-item"></span>
+                  <span class="mdi mdi-apps icon-item"></span>
                 </div>
               </div>
+                <div class="d-flex align-items-center align-self-start col-9 my-auto">
+                  <h3 class="mb-0" style="font-size: 1.6rem;font-weight:500">{{ $category }}</h3>
+                </div>
             </div>
-            <h6 class="text-muted font-weight-normal">Daily Income</h6>
+            <h6 class="text-muted font-weight-normal">Total Category</h6>
           </div>
         </div>
       </div>
       <div class="col-xl-3 col-sm-6 grid-margin stretch-card">
         <div class="card">
           <div class="card-body">
-            <div class="row">
-              <div class="col-9">
-                <div class="d-flex align-items-center align-self-start">
-                  <h3 class="mb-0">$31.53</h3>
-                  <p class="text-success ml-2 mb-0 font-weight-medium">+3.5%</p>
-                </div>
-              </div>
+            <div class="row mb-2">
               <div class="col-3">
-                <div class="icon icon-box-success ">
-                  <span class="mdi mdi-arrow-top-right icon-item"></span>
+                <div class="icon icon-box-primary">
+                  <span class="mdi mdi-package-variant-closed icon-item"></span>
                 </div>
               </div>
+                <div class="d-flex align-items-center align-self-start col-9 my-auto">
+                  <h3 class="mb-0" style="font-size: 1.6rem;font-weight:500">{{ $product }}</h3>
+                </div>
             </div>
-            <h6 class="text-muted font-weight-normal">Expense current</h6>
+            <h6 class="text-muted font-weight-normal">Total Product</h6>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-3 col-sm-6 grid-margin stretch-card">
+        <div class="card">
+          <div class="card-body">
+            <div class="row mb-2">
+              <div class="col-3">
+                <div class="icon icon-box-success">
+                  <span class="mdi mdi-cart icon-item"></span>
+                </div>
+              </div>
+                <div class="d-flex align-items-center align-self-start col-9 my-auto">
+                  <h3 class="mb-0" style="font-size: 1.6rem;font-weight:500">{{ $order }}</h3>
+                </div>
+            </div>
+            <h6 class="text-muted font-weight-normal">Total Order</h6>
           </div>
         </div>
       </div>
@@ -329,7 +305,7 @@
                       </div>
                     </td>
                     <td>
-                      <img src="assets/images/faces/face1.jpg" alt="image" />
+                      <img src="assets/images/faces/face6.jpg" alt="image" />
                       <span class="pl-2">Henry Klein</span>
                     </td>
                     <td> 02312 </td>
@@ -350,7 +326,7 @@
                       </div>
                     </td>
                     <td>
-                      <img src="assets/images/faces/face2.jpg" alt="image" />
+                      <img src="assets/images/faces/face6.jpg" alt="image" />
                       <span class="pl-2">Estella Bryan</span>
                     </td>
                     <td> 02312 </td>
@@ -371,7 +347,7 @@
                       </div>
                     </td>
                     <td>
-                      <img src="assets/images/faces/face5.jpg" alt="image" />
+                      <img src="assets/images/faces/face6.jpg" alt="image" />
                       <span class="pl-2">Lucy Abbott</span>
                     </td>
                     <td> 02312 </td>
@@ -392,7 +368,7 @@
                       </div>
                     </td>
                     <td>
-                      <img src="assets/images/faces/face3.jpg" alt="image" />
+                      <img src="assets/images/faces/face6.jpg" alt="image" />
                       <span class="pl-2">Peter Gill</span>
                     </td>
                     <td> 02312 </td>
@@ -413,7 +389,7 @@
                       </div>
                     </td>
                     <td>
-                      <img src="assets/images/faces/face4.jpg" alt="image" />
+                      <img src="assets/images/faces/face6.jpg" alt="image" />
                       <span class="pl-2">Sallie Reyes</span>
                     </td>
                     <td> 02312 </td>
@@ -457,7 +433,7 @@
               </div>
               <div class="preview-item border-bottom">
                 <div class="preview-thumbnail">
-                  <img src="assets/images/faces/face8.jpg" alt="image" class="rounded-circle" />
+                  <img src="assets/images/faces/face6.jpg" alt="image" class="rounded-circle" />
                 </div>
                 <div class="preview-item-content d-flex flex-grow">
                   <div class="flex-grow">
@@ -471,7 +447,7 @@
               </div>
               <div class="preview-item border-bottom">
                 <div class="preview-thumbnail">
-                  <img src="assets/images/faces/face9.jpg" alt="image" class="rounded-circle" />
+                  <img src="assets/images/faces/face6.jpg" alt="image" class="rounded-circle" />
                 </div>
                 <div class="preview-item-content d-flex flex-grow">
                   <div class="flex-grow">
@@ -485,7 +461,7 @@
               </div>
               <div class="preview-item border-bottom">
                 <div class="preview-thumbnail">
-                  <img src="assets/images/faces/face11.jpg" alt="image" class="rounded-circle" />
+                  <img src="assets/images/faces/face6.jpg" alt="image" class="rounded-circle" />
                 </div>
                 <div class="preview-item-content d-flex flex-grow">
                   <div class="flex-grow">
@@ -520,7 +496,7 @@
               <div class="preview-list w-100">
                 <div class="preview-item p-0">
                   <div class="preview-thumbnail">
-                    <img src="assets/images/faces/face12.jpg" class="rounded-circle" alt="">
+                    <img src="assets/images/faces/face6.jpg" class="rounded-circle" alt="">
                   </div>
                   <div class="preview-item-content d-flex flex-grow">
                     <div class="flex-grow">

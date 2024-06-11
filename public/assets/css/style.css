@@ -8820,8 +8820,8 @@ pre {
   width: 100%;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch; }
-  .table-responsive > .table-bordered {
-    border: 0; }
+  /* .table-responsive > .table-bordered {
+    border: 0; } */
 
 .form-control, .asColorPicker-input, .dataTables_wrapper select, .jsgrid .jsgrid-table .jsgrid-filter-row input[type=text],
 .jsgrid .jsgrid-table .jsgrid-filter-row select, .jsgrid .jsgrid-table .jsgrid-filter-row input[type=number], .select2-container--default .select2-selection--single, .select2-container--default .select2-selection--single .select2-search__field, .typeahead,
@@ -20195,7 +20195,7 @@ div.tagsinput {
 /* === Landing screens === */
 /* Auth */
 .auth.login-bg {
-  background: url("../images/auth/Login_bg.jpg");
+  background: url("../images/auth/Login_bg2.jpg");
   background-size: cover; }
 
 .auth .login-half-bg {
@@ -20622,7 +20622,8 @@ div.tagsinput {
 
 /* Sidebar */
 .sidebar {
-  min-height: calc(100vh - 70px);
+  position: fixed;
+  min-height: 100vh;
   background: #191c24;
   font-weight: normal;
   padding: 0;
@@ -20670,7 +20671,7 @@ div.tagsinput {
     flex-wrap: nowrap;
     flex-direction: column;
     margin-bottom: 60px;
-    padding-top: 70px; }
+    padding-top: 10px; }
     @media (max-width: 992px) {
       .sidebar .nav {
         padding-top: 0; } }
@@ -21088,7 +21089,8 @@ div.tagsinput {
     transition: all 0.25s ease;
     -webkit-transition: all 0.25s ease;
     -moz-transition: all 0.25s ease;
-    -ms-transition: all 0.25s ease; } }
+    -ms-transition: all 0.25s ease; 
+    margin-left: 70px;}}
 
 .page-body-wrapper {
   min-height: 100vh;
@@ -21096,7 +21098,7 @@ div.tagsinput {
   display: flex;
   -webkit-flex-direction: row;
   flex-direction: row;
-  padding-left: 0;
+  margin-left: 244px;
   padding-right: 0;
   transition: all 0.25s ease;
   width: calc(100% - 244px); }
@@ -21105,7 +21107,8 @@ div.tagsinput {
     min-height: 100vh; }
   @media (max-width: 992px) {
     .page-body-wrapper {
-      width: 100%; } }
+      width: 100%; 
+      margin-left: 0;} }
 
 .container-scroller {
   display: flex;
