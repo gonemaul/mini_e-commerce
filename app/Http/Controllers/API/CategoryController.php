@@ -20,6 +20,13 @@ class CategoryController extends Controller
     public function products_by_category($category){
         $products = Product::where('category_id', $category)->get();
 
-        return ProductResource::collection($products);
+        if($products->count() > 0){
+            return ProductResource::collection($products);
+        }
+        else{
+            return response()->json([
+               'message' => 'Category not found'
+            ], 404);
+        }
     }
 }
