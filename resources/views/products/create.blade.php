@@ -6,7 +6,7 @@
             <div class="title mb-5">
                 <h4>Add Product</h4>
             </div>
-            <form action="/products" method="post">
+            <form action="{{ Route('products.store') }}" method="post">
                 @csrf
                 <div class="form-group">
                     <label for="product_name">Product Name</label>
@@ -29,7 +29,7 @@
                     <input type="text" class="form-control" id="stock" name="stock" required>
                 </div>
                 <button type="submit" class="btn btn-primary">Add Product</button>
-                <a  href="/products" class="btn btn-secondary">Cancel</a>
+                <a  href="{{ Route('products.index') }}" class="btn btn-secondary">Cancel</a>
             </form>
         </div>
     </div>

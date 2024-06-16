@@ -4,8 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Web\AuthController;
 use App\Http\Controllers\Web\UserController;
 use App\Http\Controllers\Web\OrderController;
-use App\Http\Controllers\ProductController;
-use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\Web\ProductController;
+use App\Http\Controllers\Web\CategoryController;
 use App\Http\Controllers\Web\DashboardController;
 
 Route::middleware('guest')->group(function () {
@@ -26,28 +26,29 @@ Route::middleware('auth')->group(function () {
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
     
     // Category Management
-    Route::resource('/categories', CategoryController::class)->names([
+    Route::resource('/categories', CategoryController::class)->only([
+        'index','create','store','edit','update','destroy'
+    ])->names([
         'index' => 'categories.index',
         'create' => 'categories.create',
         'store' => 'categories.store',
         'edit' => 'categories.edit',
         'update' => 'categories.update',
         'destroy' => 'categories.delete',
-        'show' => 'categories.show',
     ]);
 
     // Product Management
-    Route::resource('/products', ProductController::class)->names([
+    Route::resource('/products', ProductController::class)->only([
+        'index','create','store','edit','update','destroy'
+    ])->names([
         'index' => 'products.index',
         'create' => 'products.create',
         'store' => 'products.store',
         'edit' => 'products.edit',
         'update' => 'products.update',
-        'destroy' => 'products.delete',
-        'show' => 'products.show',
     ]);
 
-    // User Management
+    // User List
     Route::get('/users', [UserController::class, 'user_list'])->name('listUsers');
 
     // Order Management

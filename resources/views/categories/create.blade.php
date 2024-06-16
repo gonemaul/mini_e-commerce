@@ -6,7 +6,7 @@
             <div class="title mb-5">
                 <h4>Create Category</h4>
             </div>
-            <form action="/categories" method="post">
+            <form action="{{ Route('categories.store') }}" method="post">
                 @csrf
                 <div class="form-group">
                     <label for="name">Category Name</label>

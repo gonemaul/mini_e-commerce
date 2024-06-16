@@ -30,7 +30,9 @@ class UserController extends Controller
         ]);
 
         if ($request->file('profilePhoto')){
-            Storage::delete($user->profile_image);
+            if($user->profile_image){
+                Storage::delete($user->profile_image);
+            }
             $validatedData['profile_image'] = $request->file('profilePhoto')->store('profile_image');
         }
 
@@ -38,7 +40,7 @@ class UserController extends Controller
         $validatedData['username'] = strtolower($request->username);
 
         $user->update($validatedData);
-        return redirect()->route('home')->with('success', 'profile updated');
+        return redirect()->route('home')->with('success', "Your profile has been updated successfully");
     }
 
     public function changePasswordAdmin(Request $request){
@@ -56,13 +58,11 @@ class UserController extends Controller
             'new_password' => 'required|string|min:8|',
         ]);
 
-        // Change Password
         $user->update([
             'password' =>  Hash::make($request->get('new_password'))
         ]);;
         
-        return redirect('/changePassword')->with("success","Password changed successfully!");
-        // Auth::logout();
+        return redirect()->route('home')->with("success","Password changed successfully!");
     }
 
     public function user_list(){

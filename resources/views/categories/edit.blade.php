@@ -15,6 +15,7 @@
                 <input type="text" class="form-control" id="name" name="category_name" placeholder="Category Name" value="{{ $data->category_name }}" required>
             </div>
             <button class="btn btn-primary" type="submit">Update</button>
+            <a  href="{{ Route('categories.index') }}" class="btn btn-secondary">Cancel</a>
         </form>
     </div>
 </div>

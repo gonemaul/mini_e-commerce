@@ -6,6 +6,8 @@ use App\Models\Product;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\ProductResource;
+use App\Http\Resources\ProductDetailResource;
+use App\Http\Resources\CategoryResourceCollection;
 
 class ProductController extends Controller
 {
@@ -16,10 +18,8 @@ class ProductController extends Controller
     }
 
     public function show_product_details($id){
-        $product = Product::find($id)->with('category')->get();
+        $product = Product::where('id',$id)->with('category')->first();
 
-        return response()->json([
-            'product' => $product
-        ]);
+        return new ProductDetailResource($product);
     }
 }

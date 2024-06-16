@@ -47,6 +47,5 @@
           </div>
       </form>
     </div>
-    <!-- content-wrapper ends -->
   </div>
 @endsection

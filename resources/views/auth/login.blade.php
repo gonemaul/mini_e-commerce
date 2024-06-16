@@ -39,6 +39,5 @@
         </div>
       </div>
     </div>
-    <!-- content-wrapper ends -->
   </div>
 @endsection

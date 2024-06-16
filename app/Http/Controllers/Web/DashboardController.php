@@ -16,9 +16,11 @@ class DashboardController extends Controller
      */
     public function __invoke(Request $request)
     {
+        $product = Product::latest();
         return view('home')->with([
             'title' => 'Dashboard',
-            'product' => Product::count(),
+            'product_count' => $product->count(),
+            'product_new' => $product->limit(5)->with('category')->get(),
             'category' => Category::count(),
             'order' => Order::count(),
             'user' => User::count(),

@@ -56,11 +56,8 @@
                 Biaya Admin : Rp. 1.000
             </div>
             <div class="total-payment">
-                Total Payment : Rp. {{ number_format($data->total, 0, ',', '.') }}
+                Total Payment : Rp. {{ number_format(($data->total + 10000 + 1000), 0, ',', '.') }}
             </div>
-            {{-- <div class="total-items">
-                Total Items     : {{ $data->orderItems->count() }}
-            </div> --}}
         </div>
         <a href="{{ Route('orderList') }}" class="ml-3 btn btn-primary">Back</a>
     </div>

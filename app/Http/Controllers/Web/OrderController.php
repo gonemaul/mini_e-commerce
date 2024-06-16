@@ -16,11 +16,9 @@ class OrderController extends Controller
     }
 
     public function order_detail($id){
-        // $data = Order::find($id)->with(['user','orderItems'])->get();
-        // return $data;
         return view('orders.detail')->with([
             'title' => 'Order Detail',
-            'data' => Order::find($id)->with(['user','orderItems.product',])->first()
+            'data' => Order::with(['user','orderItems.product'])->findOrFail($id)
         ]);
     }
 }

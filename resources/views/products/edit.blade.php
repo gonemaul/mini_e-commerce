@@ -31,7 +31,7 @@
                     <input type="text" class="form-control" id="stock" name="stock" required value="{{ $data->stock }}">
                 </div>
                 <button type="submit" class="btn btn-primary">Update Product</button>
-                <a  href="/products" class="btn btn-secondary">Cancel</a>
+                <a  href="{{ Route('products.index') }}" class="btn btn-secondary">Cancel</a>
             </form>
         </div>
     </div>

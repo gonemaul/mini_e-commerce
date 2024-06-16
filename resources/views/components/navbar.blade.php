@@ -181,7 +181,6 @@
                 </div>
               </div>
               <button type="submit" class="preview-item-content border-0 bg-transparent" style="color: white;font-size: 1rem;">
-                {{-- <button type="submit" class="preview-subject mb-1 border-0 bg-transparent color-white">Log out</button> --}}
                 <p class="preview-subject mb-1">Log out</p>
               </button>
           </form>
